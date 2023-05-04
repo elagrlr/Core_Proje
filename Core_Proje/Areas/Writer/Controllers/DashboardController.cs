@@ -26,7 +26,7 @@ namespace Core_Proje.Areas.Writer.Controllers
 
             // Weather api
             // Api key'i tanımlıyoruz.
-            string api = "32aec93e4127989052ea36ff1249d0f3";
+            string api = "";
 
             // Bağlantı değerini tanımlıyoruz. appid değeri yukarıdaki api stringinden gelecek.
             string connection = "https://api.openweathermap.org/data/2.5/weather?q=kayseri&mode=xml&lang=tr&units=metric&appid="+api;
