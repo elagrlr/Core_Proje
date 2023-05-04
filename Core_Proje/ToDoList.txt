@@ -1,0 +1,3 @@
+﻿*Grafikler
+*Rolleme işlemi devamı
+*deploy

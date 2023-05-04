@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<!-- SKILL INDEX-->
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Oran</th>
+                            <th>Sil</th>
+                            <th>Düzenle</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.SkillId</th>
+                                <td>@item.Title</td>
+                                <td>
+                                    <div>
+                                        <span class="completion mr-2">@item.Value%</span>
+                                        <div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width:@item.Value%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td> 
+                                    <td><a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-outline-danger">Sil</a></td> <!-- Gönderilen id üzerinden silme işlemi yapılacak-->
+                                <td><a href="/Skill/EditSkill/@item.SkillId" class="btn btn-outline-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a href="/Skill/AddSkill" class="btn btn-outline-info">Yeni Yetenek Ekle</a>
+        </div>
+    </div>
+</div>
+ 

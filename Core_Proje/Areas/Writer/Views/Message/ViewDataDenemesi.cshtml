@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "ViewDataDenemesi";
+    var isim = ViewData["writer2"] as string;
+    var deneme = ViewData["writer"] as EntityLayer.Concrete.WriterMessage;
+    List<EntityLayer.Concrete.WriterMessage> denemeList = ViewData["writer3"] as List<EntityLayer.Concrete.WriterMessage>;
+   
+    List<EntityLayer.Concrete.WriterMessage> denemeList2 = TempData["veri"] as List<EntityLayer.Concrete.WriterMessage>;
+
+
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>ViewDataDenemesi</h1>
+<h2> 2. Viewdata= @isim</h2>
+<h2> 2. Viewdata var'sız= @ViewData["writer2"] </h2>
+<p>@deneme.WriterId</p>
+
+<p>@deneme.Sender</p>
+<p>@deneme.SenderName</p>
+
+<p>@deneme.ReceiverName</p>
+<p>@deneme.Receiver</p>
+
+<p>@deneme.Subject</p>
+<p>@deneme.MessageContent</p>
+
+<h1>foreach ile ViewData   denemesi </h1>
+@foreach (var item in denemeList)
+{
+    <p>**************</p>
+    <p>@item.WriterId</p>
+
+    <p>@item.Sender</p>
+    <p>@item.SenderName</p>
+
+    <p>@item.ReceiverName</p>
+    <p>@item.Receiver</p>
+
+    <p>@item.Subject</p>
+    <p>@item.MessageContent</p>
+}
+<h1> @ViewBag.v2 </h1>
+@foreach (var item in ViewBag.v1)
+{
+    <p>**************</p>
+    <p>@item.WriterId</p>
+
+    <p>@item.Sender</p>
+    <p>@item.SenderName</p>
+
+    <p>@item.ReceiverName</p>
+    <p>@item.Receiver</p>
+
+    <p>@item.Subject</p>
+    <p>@item.MessageContent</p>
+}
+
+<h1> @TempData["veriadi"] </h1>
+@foreach (var item in denemeList2)
+{
+    <p>**************</p>
+    <p>@item.WriterId</p>
+
+    <p>@item.Sender</p>
+    <p>@item.SenderName</p>
+
+    <p>@item.ReceiverName</p>
+    <p>@item.Receiver</p>
+
+    <p>@item.Subject</p>
+    <p>@item.MessageContent</p>
+}

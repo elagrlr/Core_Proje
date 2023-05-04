@@ -1,0 +1,114 @@
+﻿@using EntityLayer.Concrete
+@model List<WriterUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Email</th> 
+                            <th>Sil  </th>
+                            <th>Güncelle  </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.Id</th>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td> 
+                                <td><a href="/WriterUser/DeleteWriter/@item.Id" class="btn btn-outline-danger">Sil</a></td> <!-- Gönderilen id üzerinden silme işlemi yapılacak-->
+                                <td><a href="/WriterUser/EditWriter/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a href="/WriterUser/AddWriter" class="btn btn-outline-info">Yeni Kullanıcı Ekle</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Admin- kullanıcı listele-Ajax --!>
+
+@*<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri getir</button>
+        <button type="button" id="btnadduser" class="btn btn-outline-info">Verileri kaydet</button>
+    </div>
+</div>
+<h4 class="text-center">Yazar Listesi</h4>
+<div class="p-2" id="listuser"></div>
+
+<div class="col-12">
+    <input type="text" class="form-control" id="inpName" placeholder="Adı"/>
+    <br />
+    <input type="text" class="form-control" id="inpSurname" placeholder="Soyadı"/>
+    <br />
+    <input type="text" class="form-control" id="inpUsername" placeholder="Kullanıcı Adı"/>
+    <br />
+    <input type="text" class="form-control" id="inpMail" placeholder="Mail Adresi"/>
+</div>
+
+ @section Scripts{
+    <script> //listall id'li butona tıklandığında şu fonksiyon çalışsın.
+        $("#btngetlistall").click(function() {
+            //bu fonk. ajax ile çalışacak.
+            $.ajax({
+                contentType: "application/json", // İçeriğin türü: application/json
+                dataType:"json" ,                // Json tipinde datalarla çalışacak.
+                type:"Get",                     // HttpGet ile çalışacak
+                url: "/WriterUser/ListUser/",     // Burası artık /WriterUser/ListUser/ ile çalışacak. Action'dan view türetmeden burayı çağırabileceğiz.(iletişimde mesaj gönderip ardından sendmessage'ı açmasının önüne geçeceğiz.)
+                success:function(func){         // Eğer bu işlemler başarılıysa; func adındaki fonksiyonu çağır.
+                    let users=jQuery.parseJSON(func); //let-> değişken tanımlama. fuc'tan gelen değerleri json.2a çevir users'a ata.
+                    console.log(users);         // Userstan gelen değeri yazdır.
+
+                }
+            });
+        });
+    </script>
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>*@

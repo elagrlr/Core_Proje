@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.WriterUser
+@{
+    ViewData["Title"] = "EditWriter";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddWriter", "WriterUser", FormMethod.Post, new { @class = "col-12" }))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Sosyal Medya Hesabı Güncelle</h4>
+
+                <form class="forms-sample">
+                    <div class="form-group">
+                        @Html.HiddenFor(x=>x.Id)
+                    </div>
+                    <div class="form-group">
+                        <label>Ad</label>
+                        @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label>Soyad</label>
+                        @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        @Html.TextBoxFor(x=>x.UserName, new {@class="form-control"})
+                    </div> 
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.TextBoxFor(x=>x.Email, new {@class="form-control"})
+                    </div> 
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        @Html.TextBoxFor(x=>x.PhoneNumber, new {@class="form-control"})
+                    </div>
+                     
+                    <div class="form-group">
+                        <label>Url</label>
+                        @Html.TextBoxFor(x=>x.ImageUrl, new {@class="form-control"})
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+}
